@@ -1,0 +1,24 @@
+version: '3'
+services:
+  api_client_test:
+    build: ./api-client
+    working_dir: /api-client
+    volumes:
+      - ./api-client:/api-client
+      - ~/.m2:/root/.m2
+    command: mvn clean verify
+
+  api_client:
+    restart: always
+    build: ./api-client
+    working_dir: /api-client
+    volumes:
+      - ./api-client:/api-client
+      - ~/.m2:/root/.m2
+    expose:
+      - "8882"
+    ports:
+      - "9991:8882"
+    command: mvn clean spring-boot:run
+    depends_on:
+      - api_client_test
