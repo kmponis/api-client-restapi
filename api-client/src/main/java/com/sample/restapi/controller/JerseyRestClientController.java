@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sample.restapi.service.RestClientService;
+import com.sample.restapi.service.JerseyRestClientService;
 
 import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/restclient/api/v1")
-public class RestClientController {
+public class JerseyRestClientController {
 
 	@Autowired
-	private RestClientService restClientService;
+	private JerseyRestClientService restClientService;
 
 	@ApiOperation(value = "Make getRequest call", response = ResponseEntity.class)
 	@GetMapping(value = "/getRequest")

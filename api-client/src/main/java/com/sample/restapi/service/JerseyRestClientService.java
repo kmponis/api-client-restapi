@@ -2,7 +2,7 @@ package com.sample.restapi.service;
 
 import org.springframework.http.ResponseEntity;
 
-public interface RestClientService {
+public interface JerseyRestClientService {
 
 	/**
 	 * Get responseEntity after get request

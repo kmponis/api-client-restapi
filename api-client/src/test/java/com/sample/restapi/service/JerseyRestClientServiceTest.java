@@ -24,17 +24,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.ResponseEntity.BodyBuilder;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sample.restapi.service.impl.RestClientServiceImpl;
+import com.sample.restapi.service.impl.JerseyRestClientServiceImpl;
 
 @SuppressWarnings("deprecation")
 @RunWith(JUnitPlatform.class)
 @SpringBootTest
-public class RestClientServiceTest {
+public class JerseyRestClientServiceTest {
 
 	private static final String REST_URI = "https://mock-url.com";
 
 	@InjectMocks
-	private RestClientService restClientService = new RestClientServiceImpl();
+	private JerseyRestClientService jerseyRestClientService = new JerseyRestClientServiceImpl();
 
 	@Mock
 	private Client mockClient;
@@ -72,7 +72,7 @@ public class RestClientServiceTest {
 
 		Mockito.when(mockBodyBuilder.body(Matchers.anyString())).thenReturn(responseEntity);
 
-		assertTrue(restClientService.getRequest().getBody().contains("url: https://httpbin.org/get"));
+		assertTrue(jerseyRestClientService.getRequest().getBody().contains("url: https://httpbin.org/get"));
 	}
 
 	@Test
@@ -89,7 +89,7 @@ public class RestClientServiceTest {
 
 		Mockito.when(mockBodyBuilder.body(Matchers.anyString())).thenReturn(responseEntity);
 
-		assertTrue(restClientService.getRequestWithAuthorizationToken().getBody().contains("{"));
+		assertTrue(jerseyRestClientService.getRequestWithAuthorizationToken().getBody().contains("{"));
 	}
 
 	@Test
@@ -113,7 +113,7 @@ public class RestClientServiceTest {
 
 		Mockito.when(mockBodyBuilder.body(Matchers.anyString())).thenReturn(responseEntity);
 
-		assertTrue(restClientService.getRequestWithBasicAuthentication().getBody().contains("{"));
+		assertTrue(jerseyRestClientService.getRequestWithBasicAuthentication().getBody().contains("{"));
 	}
 
 	/*
@@ -132,7 +132,7 @@ public class RestClientServiceTest {
 
 		Mockito.when(mockBodyBuilder.body(Matchers.anyString())).thenReturn(responseEntity);
 
-		assertTrue(restClientService.postRequest().getBody().contains("{"));
+		assertTrue(jerseyRestClientService.postRequest().getBody().contains("{"));
 	}
 
 	@Test
@@ -148,6 +148,6 @@ public class RestClientServiceTest {
 
 		Mockito.when(mockBodyBuilder.body(Matchers.anyString())).thenReturn(responseEntity);
 
-		assertTrue(restClientService.postRequestWithAuthorizationToken("asd").getBody().contains("{"));
+		assertTrue(jerseyRestClientService.postRequestWithAuthorizationToken("asd").getBody().contains("{"));
 	}
 }

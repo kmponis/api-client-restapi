@@ -16,11 +16,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sample.restapi.service.RestClientService;
+import com.sample.restapi.service.JerseyRestClientService;
 
 @SuppressWarnings("unchecked")
 @Service
-public class RestClientServiceImpl implements RestClientService {
+public class JerseyRestClientServiceImpl implements JerseyRestClientService {
 
 	private static final String REST_URI = "https://httpbin.org";
 
