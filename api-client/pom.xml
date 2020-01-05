@@ -24,7 +24,8 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<version.java>1.8</version.java>
 		<version.swagger>2.9.2</version.swagger>
-		<version.ebx.linkedin>1.0.3</version.ebx.linkedin>
+		<version.okhttp>2.7.5</version.okhttp>
+		<version.json>20180130</version.json>
 		<version.surefire>2.19</version.surefire>
 		<version.jacoco>0.8.3</version.jacoco>
 	</properties>
@@ -72,6 +73,22 @@
 		<dependency>
 			<groupId>org.glassfish.jersey.inject</groupId>
 			<artifactId>jersey-hk2</artifactId>
+		</dependency>
+		<!-- Client API -->
+		<dependency>
+			<groupId>com.squareup.okhttp</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>${version.okhttp}</version>
+		</dependency>
+		<!-- JSON -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>${version.json}</version>
 		</dependency>
 
 		<!-- TEST Dependencies -->
