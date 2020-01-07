@@ -93,7 +93,7 @@ public class OkHttpRestClientServiceImpl implements OkHttpRestClientService {
 	 */
 	private Gson getGson() {
 		// Formatter will depend on input Date format
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-ddTHH:mm:ss");
 
 		return new GsonBuilder()
 				.registerTypeAdapter(LocalDateTime.class, (JsonDeserializer<LocalDateTime>) (json, type,
