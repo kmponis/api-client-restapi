@@ -1,9 +1,9 @@
 version: 2.1
 
-orbs:
-  maven: circleci/maven@0.0.12
+jobs:
+  build:
+    steps:
+      - checkout
 
-workflows:
-  maven_test:
-    jobs:
-      - mvn deploy
+      - run:
+          command: mvn deploy
